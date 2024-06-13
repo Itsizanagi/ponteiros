@@ -1,0 +1,51 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+/* 
+int main(int argc, char **argv, char *ergv[]){
+    
+    int i;
+
+    char **s = {"texto", "texto2"};
+
+    for(i=0; i>argc; i++)
+        puts(argv[i]);
+    puts(ergv[1]);
+
+    return 0;
+}
+*/
+int main(int argc, char const *argv[]) {
+
+    int i; // 4 bytes alocados para um int32
+
+    printf("O endereco de i: %p\ntamanho de i: %zu\n\n", (void*)&i, sizeof i);
+
+    int *p; // Ponteiro para int
+    printf("O endereco de p: %p\ntamanho de p: %zu\n\n", (void*)&p, sizeof p);
+
+    // p = (int*)malloc(sizeof(int));
+
+    p = &i;
+    printf("o conteudo de p %p\n", p);
+    printf("o tamanho de p: %zu\n", sizeof p);
+    printf("o endereco de p: %p\n", &p);
+
+    *p = 9;
+
+    printf("Esse numero eh: %d\n", *p);
+
+    int *a = NULL;
+
+    printf("endereco pra onde a aponta: %p\n", a);
+
+    a = malloc(sizeof (int));
+    printf("endereco pra onde a aponta: %p\n", a); // 4 bytes alocados nesse endereço
+    *a = 9;
+    printf("x: %d\n", *a);
+    free(a);
+
+    
+
+    return 0;
+}
